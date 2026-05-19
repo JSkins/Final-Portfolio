@@ -8,6 +8,32 @@ export const nav = {
   avatarAlt: "James Skinner",
 };
 
+export const menu = {
+  /** Primary nav links — large 48px items in the left column */
+  links: [
+    { label: "Work",    href: "#work" },
+    { label: "About",   href: "#about" },
+    { label: "Artwork", href: "#artwork" },
+    { label: "Writing", href: "#writing" },
+    { label: "CV",      href: "/cv.pdf" },
+  ],
+  /** Secondary right-column links */
+  contact: {
+    label: "Get in touch",
+    href: "mailto:hello@jamesskinner.co.uk",
+    subLinks: [
+      { label: "About", href: "#about" },
+    ],
+  },
+  socials: {
+    label: "Socials",
+    links: [
+      { label: "Instagram", href: "https://instagram.com/jamesskinner" },
+      { label: "LinkedIn",  href: "https://linkedin.com/in/jamesskinner" },
+    ],
+  },
+};
+
 export type Project = {
   id: string;
   title: string;
