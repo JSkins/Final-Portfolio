@@ -24,7 +24,7 @@ export default function ProjectCarousel({ section }: { section: CarouselSection 
           <h2 className="font-['Manrope'] font-semibold text-[32px] text-white leading-[1.4]">
             {section.companyName}
           </h2>
-          <p className="font-['Public_Sans'] font-light text-lg text-[#7b7b80] leading-[1.4]">
+          <p className="font-['Public_Sans'] font-light text-lg text-[#929296] leading-[1.4]">
             {section.description}
           </p>
         </div>
@@ -102,14 +102,14 @@ function ProjectCard({ project }: { project: CarouselSection["projects"][number]
         <h3 className="font-['Public_Sans'] font-semibold text-2xl text-white leading-[1.4] tracking-[-0.02em]">
           {project.title}
         </h3>
-        <p className="font-['Public_Sans'] font-light text-lg text-[#7b7b80] leading-[1.4]">
+        <p className="font-['Public_Sans'] font-light text-lg text-[#929296] leading-[1.4]">
           {project.description}
         </p>
         <div className="flex flex-wrap gap-1">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="border border-[#7b7b80] rounded-xl px-3 py-1 text-xs font-['Public_Sans'] font-light text-[#7b7b80] leading-[1.4]"
+              className="border border-[#929296] rounded-xl px-3 py-1 text-xs font-['Public_Sans'] font-light text-[#929296] leading-[1.4]"
             >
               {tag}
             </span>

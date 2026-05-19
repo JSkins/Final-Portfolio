@@ -22,7 +22,7 @@ export default function References() {
                 <p className="font-['Public_Sans'] font-semibold text-2xl text-white tracking-[-0.02em]">
                   {t.name}
                 </p>
-                <p className="font-['Public_Sans'] font-light text-lg text-[#7b7b80]">
+                <p className="font-['Public_Sans'] font-light text-lg text-[#929296]">
                   {t.role}, {t.company}
                 </p>
               </div>
