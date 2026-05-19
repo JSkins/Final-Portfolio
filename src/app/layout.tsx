@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Public_Sans } from "next/font/google";
 import "./globals.css";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -30,7 +31,10 @@ export default function RootLayout({
       lang="en"
       className={`${manrope.variable} ${publicSans.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col bg-[#0d0d0d]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#0d0d0d]">
+        <LoadingScreen />
+        {children}
+      </body>
     </html>
   );
 }
