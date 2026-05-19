@@ -64,7 +64,7 @@ export const carousels: CarouselSection[] = [
   {
     id: "moneybox",
     companyName: "Moneybox",
-    description: "Product Design · 2021–Present",
+    description: "Moneybox is the UK's leading savings and investment platform, trusted by 2.5 million customers to manage more than £22.4 billion in assets. I've led multiple end-to-end investing products and features, on web and mobile.",
     // TODO: Replace with a permanent logo image — e.g. /images/moneybox-logo.png
     logoSrc: "https://www.figma.com/api/mcp/asset/9b7e6df4-f367-4187-8750-d23c65b0a93d",
     projects: [
