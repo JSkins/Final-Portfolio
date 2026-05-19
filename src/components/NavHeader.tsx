@@ -24,7 +24,7 @@ export default function NavHeader() {
             href="https://www.linkedin.com/in/james-skinner-"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:block font-['Manrope'] font-[550] text-lg text-white leading-[1.4] hover:text-[#929296] transition-colors whitespace-nowrap"
+            className="hidden sm:block font-['Manrope'] font-normal text-lg text-white leading-[1.4] hover:text-[#929296] transition-colors whitespace-nowrap"
           >
             Connect on LinkedIn
           </a>
