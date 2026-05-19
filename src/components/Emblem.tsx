@@ -33,9 +33,8 @@ export default function Emblem({ type, color = "#f6ca4f", size = 140 }: Props) {
 
   return (
     <svg width={size} height={size} viewBox="0 0 140 140" fill="none">
-      {/* Lightning bolt */}
       <path
-        d="M85 10 L45 75 H72 L55 130 L110 55 H80 L95 10 Z"
+        d="M0 82.069L81.5576 0V57.931H140L58.0062 140V82.069H0Z"
         fill={color}
       />
     </svg>

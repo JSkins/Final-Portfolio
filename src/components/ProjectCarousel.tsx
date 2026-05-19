@@ -14,7 +14,7 @@ export default function ProjectCarousel({ section }: { section: CarouselSection 
   return (
     <section className="w-full">
       {/* Header row */}
-      <div className="flex items-start justify-between mb-16 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-16 gap-4">
         <div className="flex flex-col gap-3">
           {section.logoSrc && (
             <div className="bg-[#f3f3f6] rounded-lg p-3 w-fit">
@@ -24,14 +24,14 @@ export default function ProjectCarousel({ section }: { section: CarouselSection 
           <h2 className="font-['Manrope'] font-semibold text-[32px] text-white leading-[1.4]">
             {section.companyName}
           </h2>
-          <p className="font-['Public_Sans'] font-light text-lg text-[#929296] leading-[1.4]">
+          <p className="font-['Public_Sans'] font-light text-lg text-[#929296] leading-[1.4] sm:max-w-[348px] lg:max-w-[421px]">
             {section.description}
           </p>
         </div>
 
         {/* Pagination arrows */}
         {totalPages > 1 && (
-          <div className="flex gap-2 shrink-0 mt-1">
+          <div className="flex gap-2 shrink-0 sm:mt-1">
             <button
               onClick={() => setPage((p) => Math.max(0, p - 1))}
               disabled={page === 0}
