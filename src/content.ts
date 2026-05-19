@@ -144,7 +144,8 @@ export const carousels: CarouselSection[] = [
   {
     id: "freelance",
     companyName: "Freelance",
-    description: "Brand & Digital · 2017–2019",
+    description: "My writing & hobby projects",
+    logoSrc: "/js-logo.svg",
     projects: [
       {
         id: "fl-1",
