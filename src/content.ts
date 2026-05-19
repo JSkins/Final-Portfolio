@@ -55,8 +55,8 @@ export type CarouselSection = {
   companyName: string;
   /** Subtitle shown below the company name */
   description: string;
-  /** Logo image src */
-  logoSrc?: string;
+  /** One or more logo image srcs — rendered as a horizontal row */
+  logoSrcs?: string[];
   projects: Project[];
 };
 
@@ -65,7 +65,7 @@ export const carousels: CarouselSection[] = [
     id: "moneybox",
     companyName: "Moneybox",
     description: "Moneybox is the UK's leading savings and investment platform, trusted by 2.5 million customers to manage more than £22.4 billion in assets. I've led multiple end-to-end investing products and features, on web and mobile.",
-    logoSrc: "/moneybox-logo.png",
+    logoSrcs: ["/moneybox-logo.png"],
     projects: [
       {
         id: "mb-1",
@@ -109,7 +109,7 @@ export const carousels: CarouselSection[] = [
     id: "hawk-eye",
     companyName: "Hawk-Eye Innovations",
     description: "Hawk-Eye Innovations is a global leader in live sports technology, trusted by major leagues worldwide to deliver tracking, broadcast operations, and cutting-edge officiating. I supported the development of AR/VR products used for officiating and broadcasting to elevate fan experiences.",
-    logoSrc: "/hawk-eye-logo.svg",
+    logoSrcs: ["/hei-logo.png", "/hawk-eye-logo.svg"],
     projects: [
       {
         id: "he-1",
@@ -144,7 +144,7 @@ export const carousels: CarouselSection[] = [
     id: "freelance",
     companyName: "Freelance",
     description: "My writing & hobby projects",
-    logoSrc: "/js-logo.svg",
+    logoSrcs: ["/js-logo.svg"],
     projects: [
       {
         id: "fl-1",
