@@ -109,7 +109,8 @@ export const carousels: CarouselSection[] = [
   {
     id: "hawk-eye",
     companyName: "Hawk-Eye Innovations",
-    description: "UX Design · 2019–2021",
+    description: "Hawk-Eye Innovations is a global leader in live sports technology, trusted by major leagues worldwide to deliver tracking, broadcast operations, and cutting-edge officiating. I supported the development of AR/VR products used for officiating and broadcasting to elevate fan experiences.",
+    logoSrc: "/hawk-eye-logo.svg",
     projects: [
       {
         id: "he-1",
