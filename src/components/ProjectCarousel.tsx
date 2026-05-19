@@ -17,8 +17,8 @@ export default function ProjectCarousel({ section }: { section: CarouselSection 
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-16 gap-4">
         <div className="flex flex-col gap-3">
           {section.logoSrc && (
-            <div className="bg-[#f3f3f6] rounded-lg p-3 w-fit">
-              <Image src={section.logoSrc} alt={section.companyName} width={32} height={32} unoptimized />
+            <div className="size-[56px] rounded-lg overflow-hidden shrink-0">
+              <Image src={section.logoSrc} alt={section.companyName} width={56} height={56} className="object-cover w-full h-full" unoptimized />
             </div>
           )}
           <h2 className="font-['Manrope'] font-semibold text-[32px] text-white leading-[1.4]">
