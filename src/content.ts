@@ -20,9 +20,9 @@ export const menu = {
   /** Secondary right-column links */
   contact: {
     label: "Get in touch",
-    href: "mailto:hello@jamesskinner.co.uk",
+    href: "mailto:james.skinner99@outlook.com",
     subLinks: [
-      { label: "About", href: "#about" },
+      { label: "james.skinner99@outlook.com", href: "mailto:james.skinner99@outlook.com" },
     ],
   },
   socials: {
