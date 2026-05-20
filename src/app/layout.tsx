@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Public_Sans } from "next/font/google";
 import "./globals.css";
 import LoadingScreen from "@/components/LoadingScreen";
+import { Analytics } from "@vercel/analytics/next";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#0d0d0d]">
         <LoadingScreen />
         {children}
+        <Analytics />
       </body>
     </html>
   );
