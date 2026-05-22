@@ -3,9 +3,8 @@ import NavHeader from "@/components/NavHeader";
 import Footer from "@/components/Footer";
 import GifOnce from "@/components/GifOnce";
 
-// TODO: Replace with permanent images — Figma asset URLs expire after ~7 days
+// TODO: Replace with permanent image — Figma asset URL expires after ~7 days
 const PHOTO_SRC = "https://www.figma.com/api/mcp/asset/aae6780d-a524-45f6-a737-fd85560b1859";
-const MAP_SRC   = "https://www.figma.com/api/mcp/asset/34a622e4-9c94-4b85-a281-1eec9a130e2c";
 
 const skills = [
   "Product Design",
@@ -93,16 +92,55 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* ── Map — "Working from Barcelona" ── */}
-          {/* TODO: Replace MAP_SRC with permanent asset — Figma URL expires after ~7 days */}
+          {/* ── Map — "Working from London" ── */}
           <div className="w-full aspect-[1152/708] relative rounded-2xl overflow-hidden">
+            {/* Background map */}
             <Image
-              src={MAP_SRC}
-              alt="Working from Barcelona"
+              src="/wf-london.jpg"
+              alt="Map of Europe — Working from London"
               fill
               className="object-cover"
               unoptimized
             />
+
+            {/* Overlay — hidden on mobile, visible sm+ */}
+            <div className="hidden sm:block">
+
+              {/* Cursor pin */}
+              <div className="absolute" style={{ left: "45.83%", top: "50.28%" }}>
+                <svg
+                  width="17" height="20"
+                  viewBox="0 0 21.9573 24.3789"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ transform: "scaleY(-1)" }}
+                >
+                  <path
+                    d="M1.35444 3.18758C1.15337 1.90099 2.48307 0.944113 3.62495 1.49617L3.7353 1.55476L19.8164 10.8321C21.1825 11.6207 20.7028 13.6734 19.1767 13.8341C18.3084 13.9255 16.8904 14.1148 15.4277 14.4727C13.936 14.8378 12.5337 15.3476 11.6035 16.0147C10.7172 16.6504 9.83338 17.7347 9.04975 18.9454C8.28046 20.134 7.67259 21.3403 7.30854 22.1192C6.96264 22.8593 6.21644 23.1099 5.63178 23.0333C5.04354 22.956 4.37483 22.5131 4.24604 21.6895L1.35444 3.18758Z"
+                    fill="#141414" stroke="#F3F3F6" strokeWidth="2.66667"
+                  />
+                </svg>
+              </div>
+
+              {/* Orange location dot */}
+              <div
+                className="absolute size-[4px] rounded-full bg-[#f5b73d]"
+                style={{ left: "45.31%", top: "53.67%" }}
+              />
+
+              {/* "Working from London" label */}
+              <div className="absolute" style={{ left: "46.96%", top: "40.68%" }}>
+                <div className="flex items-center gap-3 lg:gap-5 bg-[#141414] border border-[#e9e9e9] pl-2 pr-4 py-2 lg:pr-5 rounded-l-full rounded-tr-[20px] rounded-br-[20px] lg:rounded-tr-[24px] lg:rounded-br-[24px]">
+                  <div className="relative size-9 lg:size-[52px] rounded-full overflow-hidden shrink-0">
+                    <Image src="/js-avatar.jpg" alt="James Skinner" fill className="object-cover" unoptimized />
+                  </div>
+                  <span className="font-['Public_Sans'] font-light text-white whitespace-nowrap leading-[1.4] text-sm md:text-lg lg:text-2xl xl:text-[28px]">
+                    Working from London
+                  </span>
+                </div>
+              </div>
+
+            </div>
           </div>
 
         </div>
