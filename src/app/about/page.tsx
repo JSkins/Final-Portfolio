@@ -23,7 +23,7 @@ export default function AboutPage() {
         <div className="max-w-[1280px] w-full mx-auto px-6 md:px-16 pt-12 pb-[140px] flex flex-col gap-16">
 
           {/* ── Bio ── */}
-          <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-20 lg:min-h-[calc(100vh-76px)] lg:pb-10">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:min-h-[80vh]">
 
             {/* Portrait — fixed 480px tall, full-width on mobile/tablet, 420px wide on desktop */}
             <div className="w-full h-[480px] lg:w-[420px] lg:max-h-[480px] relative rounded-3xl overflow-hidden shrink-0 bg-[#1a1a1a]">

@@ -6,15 +6,15 @@ import { useEffect, useRef } from 'react';
  * Renders an animated GIF that plays once then freezes on its last visible frame.
  * The parent element must be `position: relative` with defined dimensions.
  *
- * How it works: after `gifDurationMs` the current frame is drawn onto a canvas,
- * the img.src is replaced with the resulting PNG data-URL, and the animation stops.
+ * How it works: after two loops (`gifDurationMs * 2`) the current frame is drawn onto
+ * a canvas, the img.src is replaced with the resulting PNG data-URL, and animation stops.
  *
  * Note: canvas snapshot requires the image to be same-origin (no CORS restriction).
  * The temporary Figma asset URL will silently fall back to continuous looping until
  * replaced with a same-origin asset.
  *
  * @param gifDurationMs - Duration of one full GIF loop in ms. Adjust to match the
- *                        actual GIF length (default: 4000ms).
+ *                        actual GIF length (default: 4000ms). The GIF plays twice.
  */
 export default function GifOnce({
   src,
@@ -48,7 +48,7 @@ export default function GifOnce({
       }
     };
 
-    const timer = setTimeout(freeze, gifDurationMs);
+    const timer = setTimeout(freeze, gifDurationMs * 2);
     return () => clearTimeout(timer);
   }, [src, gifDurationMs]);
 
