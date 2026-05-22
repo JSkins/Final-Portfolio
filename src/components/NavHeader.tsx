@@ -10,7 +10,7 @@ export default function NavHeader() {
   return (
     <>
       <nav className="sticky top-0 z-50 bg-[#141414] border-b border-[#292929] flex items-center justify-between px-6 py-3 w-full">
-        <div className="relative size-[52px] rounded-full overflow-hidden shrink-0">
+        <a href="/" className="relative size-[52px] rounded-full overflow-hidden shrink-0 block">
           <Image
             src={nav.avatarSrc}
             alt={nav.avatarAlt}
@@ -18,7 +18,7 @@ export default function NavHeader() {
             className="object-cover"
             unoptimized
           />
-        </div>
+        </a>
         <div className="flex items-center gap-6">
           <a
             href="https://www.linkedin.com/in/james-skinner-"

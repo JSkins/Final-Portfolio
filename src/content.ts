@@ -11,10 +11,10 @@ export const nav = {
 export const menu = {
   /** Primary nav links — large 48px items in the left column */
   links: [
-    { label: "Work",    href: "#work" },
-    { label: "About",   href: "#about" },
-    { label: "Artwork", href: "#artwork" },
-    { label: "Writing", href: "#writing" },
+    { label: "Work",    href: "/#work" },
+    { label: "About",   href: "/about" },
+    { label: "Artwork", href: "/artwork" },
+    { label: "Writing", href: "https://medium.com/@james.skinner1999" },
     { label: "CV",      href: "/cv.pdf" },
   ],
   /** Secondary right-column links */
@@ -28,8 +28,8 @@ export const menu = {
   socials: {
     label: "Socials",
     links: [
-      { label: "Instagram", href: "https://instagram.com/jamesskinner" },
-      { label: "LinkedIn",  href: "https://linkedin.com/in/jamesskinner" },
+      { label: "Instagram", href: "https://www.instagram.com/penand_inks/" },
+      { label: "LinkedIn",  href: "https://www.linkedin.com/in/james-skinner-" },
     ],
   },
 };
@@ -44,6 +44,8 @@ export type Project = {
   emblem: "cross" | "lightning";
   /** emblem colour (defaults to the design palette) */
   emblemColor?: string;
+  /** optional image src — replaces the colour+emblem thumbnail entirely */
+  imageSrc?: string;
   tags: string[];
   /** optional link – omit to make the card non-clickable */
   href?: string;
@@ -75,6 +77,7 @@ export const carousels: CarouselSection[] = [
         emblem: "cross",
         emblemColor: "#F4C440",
         tags: ["UX Research", "Prototyping"],
+        href: "/work/investing-onboarding",
       },
       {
         id: "mb-2",
@@ -84,6 +87,7 @@ export const carousels: CarouselSection[] = [
         emblem: "lightning",
         emblemColor: "#E8553E",
         tags: ["Data Viz", "Design System"],
+        href: "/work/portfolio-dashboard",
       },
       {
         id: "mb-3",
@@ -143,35 +147,57 @@ export const carousels: CarouselSection[] = [
   {
     id: "freelance",
     companyName: "Freelance",
-    description: "My writing & hobby projects",
-    logoSrcs: ["/js-logo.svg"],
+    description: "My hobby projects.",
+    logoSrcs: ["/js-app-logo.svg"],
+    projects: [
+      {
+        id: "fl-vv",
+        title: "Voulez Vous",
+        description: "Your go-to cocktail guide at your fingertips.",
+        color: "#F4C440",
+        emblem: "lightning",
+        emblemColor: "#E8553E",
+        tags: ["0-1", "Branding", "Native App", "Web"],
+        href: "/work/voulez-vous",
+      },
+    ],
+  },
+  {
+    id: "articles",
+    companyName: "Articles",
+    description: "My writing & design thinking.",
     projects: [
       {
         id: "fl-1",
-        title: "Brand Identity — Aurelia",
-        description: "Visual identity system for a luxury wellness studio.",
+        title: "Escaping AI Sludge: why MVPs should be Delightful.",
+        description: "Function is the floor, not the ceiling. It's time to raise the bar and prove that the most viable products are the ones that feel human.",
         color: "#CC88CC",
         emblem: "cross",
         emblemColor: "#3DA87A",
-        tags: ["Branding", "Visual Identity"],
+        imageSrc: "/delight-article-cover.svg",
+        tags: ["Writing", "Design Thinking"],
+        href: "https://medium.com/user-experience-design-1/escaping-ai-sludge-why-mvps-should-be-delightful-04d267292458",
       },
       {
         id: "fl-2",
-        title: "E-commerce — Verd",
-        description: "Sustainable fashion store; doubled conversion post-launch.",
+        title: "Humanising Apps",
+        description: "A UI series on bridging the gap between function and emotion.",
         color: "#3DA87A",
         emblem: "lightning",
         emblemColor: "#AECECE",
-        tags: ["E-commerce", "Shopify"],
+        tags: ["Writing", "Design Thinking"],
+        href: "https://medium.com/design-bootcamp/humanising-apps-d79ed0b32ffe",
       },
       {
         id: "fl-3",
-        title: "App Design — Trailhead",
-        description: "Outdoor activity companion app for iOS and Android.",
+        title: "Talking Squares",
+        description: "How we can restore meetings from the guise of the interface to promote presence over UI features.",
         color: "#E8553E",
         emblem: "cross",
         emblemColor: "#CC88CC",
-        tags: ["Mobile Design", "iOS"],
+        imageSrc: "/talking-squares-cover.svg",
+        tags: ["Writing", "Design Thinking"],
+        href: "https://medium.com/design-bootcamp/talking-squares-399450aab448",
       },
     ],
   },

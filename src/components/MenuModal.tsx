@@ -57,125 +57,89 @@ export default function MenuModal({ open, onClose, activePath = "#work" }: Props
           </div>
 
           {/* Content */}
-          <div className="flex flex-1 items-end max-w-[1152px] w-full mx-auto px-6 md:px-16 pb-16 md:pb-20 gap-3 overflow-hidden">
+          <div className="flex flex-1 overflow-auto items-start lg:items-end">
+            <div className="
+              w-full mx-auto px-6
+              max-w-[480px] md:max-w-[560px] lg:max-w-[1152px]
+              py-20 lg:py-0 lg:pb-20
+              flex flex-col lg:flex-row
+              gap-12 lg:gap-3
+              lg:items-end
+            ">
 
-            {/* Col 1 — primary nav links */}
-            <nav className="flex flex-col gap-3 flex-1">
-              {menu.links.map((link, i) => {
-                const isActive = activePath === link.href;
-                return (
-                  <motion.a
-                    key={link.label}
-                    href={link.href}
+              {/* Col 1 — primary nav links */}
+              <nav className="flex flex-col gap-3 lg:flex-1">
+                {menu.links.map((link, i) => {
+                  const isActive = activePath === link.href;
+                  return (
+                    <motion.a
+                      key={link.label}
+                      href={link.href}
+                      onClick={onClose}
+                      {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      initial={{ opacity: 0, y: 24 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.05 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                      className={`font-['Manrope'] font-bold leading-[1.4] transition-colors duration-150 text-[40px] md:text-[48px] ${
+                        isActive
+                          ? "text-[#f5b73d]"
+                          : "text-white hover:text-[#f5b73d]"
+                      }`}
+                    >
+                      {link.label}
+                    </motion.a>
+                  );
+                })}
+              </nav>
+
+              {/* Col 2 — contact + socials */}
+              <motion.div
+                className="flex flex-col gap-6 items-start md:items-end shrink-0 pb-1"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {/* Get in touch */}
+                <div className="flex flex-col gap-2 items-start md:items-end">
+                  <a
+                    href={menu.contact.href}
                     onClick={onClose}
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.05 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                    className={`font-['Manrope'] font-bold leading-[1.4] transition-colors duration-150 text-[clamp(32px,5vw,48px)] ${
-                      isActive
-                        ? "text-[#f5b73d]"
-                        : "text-white hover:text-[#f5b73d]"
-                    }`}
+                    className="font-['Public_Sans'] font-semibold text-2xl text-white tracking-[-0.02em] hover:text-[#f5b73d] transition-colors leading-[1.4]"
                   >
-                    {link.label}
-                  </motion.a>
-                );
-              })}
-            </nav>
+                    {menu.contact.label}
+                  </a>
+                  {menu.contact.subLinks.map((sub) => (
+                    <a
+                      key={sub.label}
+                      href={sub.href}
+                      onClick={onClose}
+                      className="font-['Manrope'] font-light text-[18px] text-[#929296] hover:text-[#f5b73d] transition-colors leading-[1.48] tracking-[0.18px]"
+                    >
+                      {sub.label}
+                    </a>
+                  ))}
+                </div>
 
-            {/* Col 2 — contact + socials (desktop: right-aligned; mobile: hidden / stacked below) */}
-            <motion.div
-              className="hidden md:flex flex-col gap-6 items-end text-right shrink-0 pb-1"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {/* Get in touch */}
-              <div className="flex flex-col gap-2 items-end">
-                <a
-                  href={menu.contact.href}
-                  onClick={onClose}
-                  className="font-['Public_Sans'] font-semibold text-2xl text-white tracking-[-0.02em] hover:text-[#f5b73d] transition-colors leading-[1.4]"
-                >
-                  {menu.contact.label}
-                </a>
-                {menu.contact.subLinks.map((sub) => (
-                  <a
-                    key={sub.label}
-                    href={sub.href}
-                    onClick={onClose}
-                    className="font-['Public_Sans'] font-light text-lg text-white hover:text-[#f5b73d] transition-colors leading-[1.4]"
-                  >
-                    {sub.label}
-                  </a>
-                ))}
-              </div>
-
-              {/* Socials */}
-              <div className="flex flex-col gap-2 items-end">
-                <p className="font-['Public_Sans'] font-semibold text-2xl text-white tracking-[-0.02em] leading-[1.4]">
-                  {menu.socials.label}
-                </p>
-                {menu.socials.links.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-['Public_Sans'] font-light text-lg text-white hover:text-[#f5b73d] transition-colors leading-[1.4]"
-                  >
-                    {social.label}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Mobile-only secondary links — stacked below nav items */}
-          <motion.div
-            className="flex md:hidden flex-col gap-6 max-w-[1152px] w-full mx-auto px-6 pb-16 shrink-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.35 }}
-          >
-            <div className="border-t border-[#292929] pt-6 flex justify-between items-start">
-              <div className="flex flex-col gap-2">
-                <a
-                  href={menu.contact.href}
-                  onClick={onClose}
-                  className="font-['Public_Sans'] font-semibold text-2xl text-white tracking-[-0.02em] hover:text-[#f5b73d] transition-colors leading-[1.4]"
-                >
-                  {menu.contact.label}
-                </a>
-                {menu.contact.subLinks.map((sub) => (
-                  <a
-                    key={sub.label}
-                    href={sub.href}
-                    onClick={onClose}
-                    className="font-['Public_Sans'] font-light text-lg text-white hover:text-[#f5b73d] transition-colors leading-[1.4]"
-                  >
-                    {sub.label}
-                  </a>
-                ))}
-              </div>
-              <div className="flex flex-col gap-2 items-end">
-                <p className="font-['Public_Sans'] font-semibold text-2xl text-white tracking-[-0.02em] leading-[1.4]">
-                  {menu.socials.label}
-                </p>
-                {menu.socials.links.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-['Public_Sans'] font-light text-lg text-white hover:text-[#f5b73d] transition-colors leading-[1.4]"
-                  >
-                    {social.label}
-                  </a>
-                ))}
-              </div>
+                {/* Socials */}
+                <div className="flex flex-col gap-2 items-start md:items-end">
+                  <p className="font-['Public_Sans'] font-semibold text-2xl text-white tracking-[-0.02em] leading-[1.4]">
+                    {menu.socials.label}
+                  </p>
+                  {menu.socials.links.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-['Manrope'] font-light text-[18px] text-[#929296] hover:text-[#f5b73d] transition-colors leading-[1.48] tracking-[0.18px]"
+                    >
+                      {social.label}
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

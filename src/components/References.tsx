@@ -18,11 +18,11 @@ export default function References() {
                   unoptimized
                 />
               </div>
-              <div className="flex flex-col leading-[1.4]">
+              <div className="flex flex-col">
                 <p className="font-['Public_Sans'] font-semibold text-2xl text-white tracking-[-0.02em]">
                   {t.name}
                 </p>
-                <p className="font-['Public_Sans'] font-light text-lg text-[#929296]">
+                <p className="font-['Manrope'] font-light text-[18px] text-[#929296] leading-[1.48] tracking-[0.18px]">
                   {t.role}, {t.company}
                 </p>
               </div>
@@ -30,7 +30,7 @@ export default function References() {
 
             {/* Quote */}
             <div className="md:w-1/2">
-              <p className="font-['Public_Sans'] font-light text-lg text-white leading-[1.4]">
+              <p className="font-['Manrope'] font-light text-[18px] text-white leading-[1.48] tracking-[0.18px]">
                 &ldquo;{t.quote}&rdquo;
               </p>
             </div>

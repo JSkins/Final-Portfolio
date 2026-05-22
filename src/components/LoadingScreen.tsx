@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 // Total ms the loading screen is visible before it starts dissolving
-const TOTAL_MS = 5000;
+const TOTAL_MS = 3500;
 // Duration of the final dissolve fade-out (ms)
 const DISSOLVE_MS = 800;
 
 // Bounce animation timings (must match the CSS keyframe durations)
 const CYCLE = 0.8;
-const BOUNCES = 3;
+const BOUNCES = 2;
 
 export default function LoadingScreen() {
   const [phase, setPhase] = useState<"bounce" | "pill">("bounce");
@@ -34,7 +34,10 @@ export default function LoadingScreen() {
   // After TOTAL_MS, start the dissolve; after dissolve completes, unmount
   useEffect(() => {
     const dissolveTimer = setTimeout(() => setDissolving(true), TOTAL_MS);
-    const doneTimer = setTimeout(() => setDone(true), TOTAL_MS + DISSOLVE_MS);
+    const doneTimer = setTimeout(() => {
+      setDone(true);
+      sessionStorage.setItem("loadingSeen", "1");
+    }, TOTAL_MS + DISSOLVE_MS);
     return () => {
       clearTimeout(dissolveTimer);
       clearTimeout(doneTimer);
@@ -61,11 +64,11 @@ export default function LoadingScreen() {
         }
         .goo-dot-left {
           transform-origin: 200px 100px;
-          animation: goo-left 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) 3 forwards;
+          animation: goo-left 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) 2 forwards;
         }
         .goo-dot-right {
           transform-origin: 200px 100px;
-          animation: goo-right 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) 3 forwards;
+          animation: goo-right 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) 2 forwards;
         }
       `}</style>
 
