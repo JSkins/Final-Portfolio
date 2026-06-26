@@ -16,8 +16,14 @@ export default function LoadingScreen() {
   const [dissolving, setDissolving] = useState(false);
   const [done, setDone] = useState(false);
 
-  // Prevent body scroll while loading screen is up
+  // Prevent body scroll while loading screen is up.
+  // If the user navigated here from a case study page, skip the animation entirely.
   useEffect(() => {
+    if (sessionStorage.getItem("skipLoading") === "1") {
+      sessionStorage.removeItem("skipLoading");
+      setDone(true);
+      return; // ← no scroll lock, no cleanup needed
+    }
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";

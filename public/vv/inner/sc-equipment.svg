@@ -1,0 +1,25 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 72.0001 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 154">
+<circle id="Ellipse 11" cx="36.0001" cy="36" r="36" fill="var(--fill-0, #EEF5EF)" fill-opacity="0.8"/>
+<g id="Strainer" clip-path="url(#clip0_0_22)">
+<path id="Vector 47" d="M28.1791 43.3675C31.7696 43.3675 40.4999 31.1996 40.4999 31.1996L30.8999 31.4996L16.1999 29.9996C18.5129 34.4476 21.9594 43.3675 28.1791 43.3675Z" fill="var(--fill-0, white)"/>
+<g id="Vector">
+</g>
+<path id="Vector 42" d="M59.2291 49.3676L36.8999 32.3996L29.9999 33.5996L55.3291 52.3676C55.3291 52.3676 58.0291 53.7667 59.2291 52.0676C60.2884 50.5676 59.2291 49.3676 59.2291 49.3676Z" fill="var(--fill-0, white)" stroke="var(--stroke-0, #0D0029)" stroke-opacity="0.8" stroke-width="1.8"/>
+<g id="Ellipse 43">
+<ellipse cx="14.1" cy="6" rx="14.1" ry="6" transform="matrix(-1 0 0 1 42.4288 22.0672)" fill="var(--fill-0, white)"/>
+<path d="M28.3292 22.9676C24.5268 22.9676 21.1267 23.6252 18.711 24.6531C17.5016 25.1678 16.58 25.757 15.9747 26.366C15.3731 26.9713 15.129 27.5454 15.129 28.0672C15.129 28.5889 15.3731 29.1631 15.9747 29.7684C16.58 30.3774 17.5016 30.9666 18.711 31.4813C21.1267 32.5092 24.5268 33.1668 28.3292 33.1668C32.1314 33.1668 35.5308 32.5091 37.9464 31.4813C39.1559 30.9666 40.0774 30.3774 40.6827 29.7684C41.2844 29.163 41.5284 28.589 41.5284 28.0672C41.5284 27.5454 41.2844 26.9713 40.6827 26.366C40.0774 25.757 39.1559 25.1678 37.9464 24.6531C35.5308 23.6252 32.1314 22.9676 28.3292 22.9676Z" stroke="var(--stroke-0, #0D0029)" stroke-opacity="0.8" stroke-width="1.8"/>
+</g>
+<path id="Vector 43" d="M35.8288 38.2675C35.8288 38.2675 31.7693 43.3675 28.1788 43.3675C21.9591 43.3675 18.5126 34.4476 16.1996 29.9996" stroke="var(--stroke-0, #0D0029)" stroke-opacity="0.8" stroke-width="1.56"/>
+<path id="Vector 45" d="M22.9288 22.9676L19.3288 20.5676C19.3288 20.5676 17.8288 19.3676 16.6288 19.9676C15.6614 20.4514 16.3288 22.0676 16.3288 22.0676L17.8288 24.4676" stroke="var(--stroke-0, #0D0029)" stroke-opacity="0.8" stroke-width="1.8" stroke-linecap="round"/>
+<path id="Vector 46" d="M38.8291 33.7676L40.7999 30.2996" stroke="var(--stroke-0, #0D0029)" stroke-opacity="0.8" stroke-width="0.96"/>
+<g id="Subtract">
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_22">
+<rect width="49.2" height="49.2" fill="white" transform="translate(12.3001 11.4)"/>
+</clipPath>
+</defs>
+</svg>

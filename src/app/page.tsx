@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import NavHeader from "@/components/NavHeader";
 import Bio from "@/components/Bio";
 import ProjectCarousel from "@/components/ProjectCarousel";
@@ -23,16 +24,23 @@ export default function Home() {
           <Bio />
 
           {/* Carousel sections */}
-          <div id="work" className="flex flex-col gap-16 xl:gap-20">
-            {carousels.map((section) => (
-              <ProjectCarousel key={section.id} section={section} />
+          <div id="work" className="flex flex-col">
+            {carousels.map((section, i) => (
+              <Fragment key={section.id}>
+                {i > 0 && <hr className="border-0 border-t border-[#292929]" />}
+                <div className={i === 0 ? "pb-10 xl:pb-20" : "pt-10 xl:pt-20 pb-10 xl:pb-20"}>
+                  <ProjectCarousel section={section} />
+                </div>
+              </Fragment>
             ))}
           </div>
         </div>
 
-        {/* References — 80 px top gap matches Section frame in Figma */}
-        <div className="max-w-[1280px] w-full mx-auto px-6 md:px-[104px] lg:px-[152px] xl:px-16 pt-20 pb-16">
-          <References />
+        {/* References — full-width top border, then padded content */}
+        <div className="w-full border-t border-[#292929]" style={{ backgroundColor: "#0D0D0D" }}>
+          <div className="max-w-[1280px] w-full mx-auto px-6 md:px-[104px] lg:px-[152px] xl:px-16 pt-20 pb-16">
+            <References />
+          </div>
         </div>
       </main>
 

@@ -15,6 +15,9 @@ export default function ProjectCarousel({ section }: { section: CarouselSection 
   const scrollRef = useRef<HTMLDivElement>(null);
   // Wrapper that receives the bounce translateX animation
   const trackWrapperRef = useRef<HTMLDivElement>(null);
+  // Navigation button refs for pulse feedback
+  const prevBtnRef = useRef<HTMLButtonElement>(null);
+  const nextBtnRef = useRef<HTMLButtonElement>(null);
 
   // Drag state
   const isDragging = useRef(false);
@@ -97,6 +100,13 @@ export default function ProjectCarousel({ section }: { section: CarouselSection 
     setActivePage(Math.floor(closest / cardsPerPageRef.current));
   }, []);
 
+  /** Quick scale pulse on a nav button for tactile feedback */
+  const pulseBtn = useCallback((ref: React.RefObject<HTMLButtonElement | null>) => {
+    const el = ref.current;
+    if (!el) return;
+    animate(el, { scale: [1, 0.82, 1] }, { duration: 0.28, ease: [0.25, 0.1, 0.25, 1.0] });
+  }, []);
+
   /** Subtle bounce on the track wrapper in the direction of travel */
   const triggerBounce = useCallback((scrollDelta: number) => {
     const el = trackWrapperRef.current;
@@ -113,6 +123,8 @@ export default function ProjectCarousel({ section }: { section: CarouselSection 
     hasDragged.current = false;
     dragStartX.current = e.pageX;
     dragScrollLeft.current = scrollRef.current?.scrollLeft ?? 0;
+    // Lift snap so scrollLeft assignments during drag fire scroll events freely
+    if (scrollRef.current) scrollRef.current.style.scrollSnapType = "none";
   };
   const onMouseMove = (e: React.MouseEvent) => {
     if (!isDragging.current || !scrollRef.current) return;
@@ -121,10 +133,27 @@ export default function ProjectCarousel({ section }: { section: CarouselSection 
     scrollRef.current.scrollLeft = dragScrollLeft.current - dx;
   };
   const onDragEnd = () => {
-    if (isDragging.current && hasDragged.current && scrollRef.current) {
-      triggerBounce(scrollRef.current.scrollLeft - dragScrollLeft.current);
+    if (isDragging.current) {
+      if (hasDragged.current && scrollRef.current) {
+        const container = scrollRef.current;
+        const delta = container.scrollLeft - dragScrollLeft.current;
+        triggerBounce(delta);
+        pulseBtn(delta > 0 ? nextBtnRef : prevBtnRef);
+        // Find nearest card index from current scroll position, then goToPage
+        // to re-enable snap, sync dots, and smooth-scroll to the snap point
+        let closest = 0;
+        let closestDist = Infinity;
+        Array.from(container.children).forEach((child, i) => {
+          const dist = Math.abs((child as HTMLElement).offsetLeft - container.scrollLeft);
+          if (dist < closestDist) { closestDist = dist; closest = i; }
+        });
+        goToPage(Math.floor(closest / cardsPerPageRef.current));
+      } else if (scrollRef.current) {
+        // No drag movement — restore snap immediately
+        scrollRef.current.style.scrollSnapType = "";
+      }
+      isDragging.current = false;
     }
-    isDragging.current = false;
   };
 
   return (
@@ -164,14 +193,16 @@ export default function ProjectCarousel({ section }: { section: CarouselSection 
         {totalPages > 1 && (
           <div className="flex gap-2 shrink-0 sm:mt-1">
             <button
-              onClick={() => goToPage(activePage - 1)}
+              ref={prevBtnRef}
+              onClick={() => { pulseBtn(prevBtnRef); goToPage(activePage - 1); }}
               aria-label="Previous"
               className="border border-[#f3f3f6] rounded-full p-[14px] hover:bg-white/[0.12] active:bg-white/[0.2] transition-colors"
             >
               <ArrowLeftIcon />
             </button>
             <button
-              onClick={() => goToPage(activePage + 1)}
+              ref={nextBtnRef}
+              onClick={() => { pulseBtn(nextBtnRef); goToPage(activePage + 1); }}
               aria-label="Next"
               className="border border-[#f3f3f6] rounded-full p-[14px] hover:bg-white/[0.12] active:bg-white/[0.2] transition-colors"
             >
@@ -307,6 +338,17 @@ function ProjectCard({
     );
   }
   return <div>{inner}</div>;
+}
+
+/* ── Static card — no drag detection, safe to use outside the carousel ── */
+export function ProjectCardStatic({
+  project,
+}: {
+  project: CarouselSection["projects"][number];
+}) {
+  // Plain object satisfies the ref shape; drag never fires in a static grid
+  const noop: React.MutableRefObject<boolean> = { current: false };
+  return <ProjectCard project={project} hasDragged={noop} />;
 }
 
 function ArrowLeftIcon() {

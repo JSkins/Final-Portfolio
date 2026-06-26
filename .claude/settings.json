@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"/Users/james.skinner/Polished Portfolio/portfolio\" && vercel --prod --yes > /tmp/vercel-deploy.log 2>&1",
+            "async": true,
+            "statusMessage": "Deploying to Vercel…"
+          }
+        ]
+      }
+    ]
+  }
+}

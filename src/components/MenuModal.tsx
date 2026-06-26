@@ -83,7 +83,7 @@ export default function MenuModal({ open, onClose, activePath = "#work" }: Props
                       className={`font-['Manrope'] font-bold leading-[1.4] transition-colors duration-150 text-[40px] md:text-[48px] ${
                         isActive
                           ? "text-[#f5b73d]"
-                          : "text-white hover:text-[#f5b73d]"
+                          : "text-white hover:text-[#F6CA4F] active:text-[#F5B73D]"
                       }`}
                     >
                       {link.label}
@@ -104,7 +104,7 @@ export default function MenuModal({ open, onClose, activePath = "#work" }: Props
                   <a
                     href={menu.contact.href}
                     onClick={onClose}
-                    className="font-['Public_Sans'] font-semibold text-2xl text-white tracking-[-0.02em] hover:text-[#f5b73d] transition-colors leading-[1.4]"
+                    className="font-['Public_Sans'] font-semibold text-2xl text-white tracking-[-0.02em] hover:text-[#F6CA4F] active:text-[#F5B73D] transition-colors leading-[1.4]"
                   >
                     {menu.contact.label}
                   </a>
@@ -113,7 +113,7 @@ export default function MenuModal({ open, onClose, activePath = "#work" }: Props
                       key={sub.label}
                       href={sub.href}
                       onClick={onClose}
-                      className="font-['Manrope'] font-light text-[18px] text-[#929296] hover:text-[#f5b73d] transition-colors leading-[1.48] tracking-[0.18px]"
+                      className="font-['Manrope'] font-light text-[18px] text-[#929296] hover:text-[#F6CA4F] active:text-[#F5B73D] transition-colors leading-[1.48] tracking-[0.18px]"
                     >
                       {sub.label}
                     </a>
@@ -131,7 +131,7 @@ export default function MenuModal({ open, onClose, activePath = "#work" }: Props
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-['Manrope'] font-light text-[18px] text-[#929296] hover:text-[#f5b73d] transition-colors leading-[1.48] tracking-[0.18px]"
+                      className="font-['Manrope'] font-light text-[18px] text-[#929296] hover:text-[#F6CA4F] active:text-[#F5B73D] transition-colors leading-[1.48] tracking-[0.18px]"
                     >
                       {social.label}
                     </a>

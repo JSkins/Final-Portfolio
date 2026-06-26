@@ -9,10 +9,10 @@ export default function Bio() {
     >
       {/* Text — visually bottom on mobile/tablet, left on laptop/desktop */}
       <div className="flex flex-col gap-3 shrink-0 lg:flex-none lg:w-[348px] lg:justify-center xl:w-[720px]">
-        <h1 className="font-['Manrope'] font-semibold text-[28px] md:text-[40px] xl:text-[48px] text-white leading-[1.4]">
-          Hello! I&apos;m James — a British designer, artist, and maker.
+        <h1 className="font-['Manrope'] font-semibold text-[28px] md:text-[40px] xl:text-[48px] text-white leading-[1.28]">
+          Hello! I&apos;m James - a British designer, artist, and maker.
         </h1>
-        <p className="font-['Manrope'] font-normal text-[20px] xl:text-[28px] text-[#929296] leading-[1.5]">
+        <p className="font-['Manrope'] font-normal text-[20px] xl:text-[28px] text-[#929296] leading-[1.5] text-pretty">
           If people use it, I care about it. I&apos;m currently designing for investing products at Moneybox to democratise wealth.
         </p>
       </div>

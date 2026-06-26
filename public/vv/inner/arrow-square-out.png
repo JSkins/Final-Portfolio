@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 19.2 19.2" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ArrowSquareOut" clip-path="url(#clip0_0_62)">
+<g id="Vector">
+</g>
+<path id="Vector_2" d="M16.1996 7.8L16.1989 3.00075L11.3996 3" stroke="var(--stroke-0, white)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M10.1996 9L16.1996 3" stroke="var(--stroke-0, white)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M13.7996 10.2V15.6C13.7996 15.7591 13.7364 15.9117 13.6239 16.0243C13.5114 16.1368 13.3587 16.2 13.1996 16.2H3.59961C3.44048 16.2 3.28787 16.1368 3.17535 16.0243C3.06282 15.9117 2.99961 15.7591 2.99961 15.6V6C2.99961 5.84087 3.06282 5.68826 3.17535 5.57574C3.28787 5.46321 3.44048 5.4 3.59961 5.4H8.99961" stroke="var(--stroke-0, white)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_0_62">
+<rect width="19.2" height="19.2" fill="white"/>
+</clipPath>
+</defs>
+</svg>

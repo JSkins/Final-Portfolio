@@ -3,14 +3,30 @@ import { useState } from "react";
 import Image from "next/image";
 import { nav } from "@/content";
 import MenuModal from "./MenuModal";
+import { usePathname, useRouter } from "next/navigation";
 
-export default function NavHeader() {
+export default function NavHeader({ bg = "#141414" }: { bg?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // On case study pages, skip the loading animation when navigating home
+  function handleAvatarClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (pathname?.startsWith("/work/")) {
+      e.preventDefault();
+      sessionStorage.setItem("skipLoading", "1");
+      router.push("/");
+    }
+    // All other pages: let the default <a href="/"> handle it normally
+  }
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-[#141414] border-b border-[#292929] flex items-center justify-between px-6 py-3 w-full">
-        <a href="/" className="relative size-[52px] rounded-full overflow-hidden shrink-0 block">
+      <nav
+        className="sticky top-0 z-50 border-b flex items-center justify-between px-6 py-3 w-full"
+        style={{ backgroundColor: bg, borderColor: bg }}
+      >
+        <a href="/" onClick={handleAvatarClick} className="relative size-[52px] rounded-full overflow-hidden shrink-0 block">
           <Image
             src={nav.avatarSrc}
             alt={nav.avatarAlt}
@@ -24,7 +40,7 @@ export default function NavHeader() {
             href="https://www.linkedin.com/in/james-skinner-"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:block font-['Manrope'] font-normal text-lg text-white leading-[1.4] hover:text-[#929296] transition-colors whitespace-nowrap"
+            className="hidden sm:block font-['Manrope'] font-normal text-lg text-white leading-[1.4] hover:text-[#F6CA4F] active:text-[#F5B73D] transition-colors whitespace-nowrap"
           >
             Connect on LinkedIn
           </a>
