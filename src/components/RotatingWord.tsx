@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const DEFAULT_WORDS = ["designer", "artist", "maker"];
 
-const HOLD_MS = 3000; // time a fully-typed word sits before the cursor starts backspacing it
+const HOLD_MS = 2500; // time a fully-typed word sits before the cursor starts backspacing it
 const DELETE_CHAR_MS = 35; // backspace speed, per character
 const DELETE_PAUSE_MS = 300; // brief pause once a word is fully deleted, before typing starts
 const TYPE_CHAR_MS = 55; // typing speed, per character
@@ -21,12 +21,28 @@ export default function RotatingWord({
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("idle");
   const [charCount, setCharCount] = useState(words[0].length);
+  const [started, setStarted] = useState(false);
   const reducedMotion = useReducedMotion();
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const nextIndex = (index + 1) % words.length;
 
+  // Don't start cycling until the loading screen has finished — otherwise
+  // the animation runs unseen behind it and lands mid-cycle on first paint.
   useEffect(() => {
+    const onLoadingComplete = () => setStarted(true);
+    window.addEventListener("loading-complete", onLoadingComplete);
+    // Safety net: start anyway if the event is ever missed.
+    const fallback = setTimeout(() => setStarted(true), 4500);
+    return () => {
+      window.removeEventListener("loading-complete", onLoadingComplete);
+      clearTimeout(fallback);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+
     const schedule = (fn: () => void, ms: number) => {
       timerRef.current = setTimeout(fn, ms);
     };
@@ -64,7 +80,7 @@ export default function RotatingWord({
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [phase, charCount, nextIndex, words, reducedMotion]);
+  }, [started, phase, charCount, nextIndex, words, reducedMotion]);
 
   const settledWord = words[index];
   const activeWord = phase === "typing" ? words[nextIndex] : settledWord;

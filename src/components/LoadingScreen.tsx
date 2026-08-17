@@ -22,6 +22,7 @@ export default function LoadingScreen() {
     if (sessionStorage.getItem("skipLoading") === "1") {
       sessionStorage.removeItem("skipLoading");
       setDone(true);
+      window.dispatchEvent(new Event("loading-complete"));
       return; // ← no scroll lock, no cleanup needed
     }
     document.body.style.overflow = "hidden";
@@ -43,6 +44,7 @@ export default function LoadingScreen() {
     const doneTimer = setTimeout(() => {
       setDone(true);
       sessionStorage.setItem("loadingSeen", "1");
+      window.dispatchEvent(new Event("loading-complete"));
     }, TOTAL_MS + DISSOLVE_MS);
     return () => {
       clearTimeout(dissolveTimer);
