@@ -15,7 +15,7 @@ export default function Bio() {
           Hello 👋 I&apos;m James, a British designer
         </h1>
         <p className="font-['Manrope'] font-normal text-[20px] xl:text-[28px] text-[#929296] leading-[1.5] text-pretty">
-          If people use it, I care about it. I&apos;m currently designing for investing products at Moneybox to democratise wealth.
+          If people use it, I care about it. I&apos;m currently designing enterprise products at Trainline to make travel easier.
         </p>
       </div>
 
