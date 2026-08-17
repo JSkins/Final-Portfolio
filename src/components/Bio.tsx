@@ -8,7 +8,7 @@ export default function Bio() {
     // Desktop (xl): gap-20 (80px), text flex-1, image fixed 480x622 (per Figma)
     <section
       id="about"
-      className="flex flex-col-reverse gap-12 min-h-[calc(100vh-76px)] sm:min-h-[calc(100vh-116px)] pb-10 md:pb-20 md:justify-between lg:flex-row lg:items-end lg:gap-14 lg:justify-start xl:gap-20 xl:justify-center"
+      className="flex flex-col-reverse gap-12 min-h-[calc(100vh-76px)] sm:min-h-[calc(100vh-116px)] pt-4 md:pt-0 pb-10 md:pb-20 md:justify-between lg:flex-row lg:items-end lg:gap-14 lg:justify-start xl:gap-20 xl:justify-center"
     >
       {/* Text — visually bottom on mobile/tablet, left on laptop/desktop */}
       <div className="flex flex-col gap-3 shrink-0 lg:flex-1 lg:justify-center">
