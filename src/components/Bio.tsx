@@ -1,4 +1,5 @@
 import Image from "next/image";
+import RotatingWord from "./RotatingWord";
 
 export default function Bio() {
   return (
@@ -12,7 +13,7 @@ export default function Bio() {
       {/* Text — visually bottom on mobile/tablet, left on laptop/desktop */}
       <div className="flex flex-col gap-3 shrink-0 lg:flex-1 lg:justify-center">
         <h1 className="font-['Manrope'] font-semibold text-[28px] md:text-[40px] xl:text-[48px] text-white leading-[1.28]">
-          Hello 👋 I&apos;m James, a British designer
+          Hello 👋 I&apos;m James, a British <RotatingWord />
         </h1>
         <p className="font-['Manrope'] font-normal text-[20px] xl:text-[28px] text-[#929296] leading-[1.5] text-pretty">
           If people use it, I care about it. I&apos;m currently designing enterprise products at Trainline to make travel easier.
