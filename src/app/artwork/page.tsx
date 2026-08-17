@@ -4,22 +4,22 @@ import Footer from "@/components/Footer";
 
 const ROW1_LEFT  = "/artwork/old-man-sketch.jpg";
 const ROW1_RIGHT = "/artwork/garden-watercolour.jpg";
-const ROW2_LEFT  = "/artwork/house-watercolour.png";
+const ROW2_LEFT  = "/artwork/white-townhouse-painting.png";
+const ROW2_RIGHT = "/artwork/cream-townhouse-painting.png";
 const ROW3_LEFT  = "/artwork/landscape-painting.png";
 const ROW3_RIGHT = "/artwork/oh-pretty-woman.png";
-const ROW4_LEFT  = "/artwork/second-wave.jpg";
-const ROW4_RIGHT = "/artwork/hand-sketch.png";
-const ROW5_LEFT  = "/artwork/two-children.jpg";
-const ROW5_RIGHT = "/artwork/london-building-sketch.png";
-const ROW6_LEFT  = "/artwork/black-labrador.png";
-const ROW6_RIGHT = "/artwork/vineyard-sketch.jpg";
-const ROW7_LEFT  = "/artwork/megaphone-illustration.png";
-const ROW7_RIGHT = "/artwork/circular-design-system.jpg";
-const ROW8_VIDEO = "/artwork/man-wine-glass.mp4";
-const ROW9_LEFT  = "/artwork/life-mirror.png";
-const ROW9_RIGHT = "/artwork/limpets.png";
-const ROW10_RIGHT = "/artwork/my-light-joshy.jpg";
-const ROW11_LEFT  = "/artwork/swirl-twil.jpg";
+const ROW4_LEFT  = "/artwork/limpets.png";
+const ROW4_RIGHT = "/artwork/yorkie-portrait.png";
+const ROW5_LEFT  = "/artwork/house-watercolour.png";
+const ROW6_RIGHT = "/artwork/hand-sketch.png";
+const ROW7_LEFT  = "/artwork/two-children.jpg";
+const ROW7_RIGHT = "/artwork/london-building-sketch.png";
+const ROW8_LEFT  = "/artwork/black-labrador.png";
+const ROW8_RIGHT = "/artwork/vineyard-sketch.jpg";
+const ROW9_LEFT  = "/artwork/megaphone-illustration.png";
+const ROW9_MID   = "/artwork/circular-design-system.jpg";
+const ROW10_VIDEO = "/artwork/man-wine-glass.mp4";
+const ROW11_LEFT  = "/artwork/second-wave.jpg";
 
 export default function ArtworkPage() {
   return (
@@ -55,10 +55,10 @@ export default function ArtworkPage() {
           </div>
 
           {/* ── Artwork grid ── */}
-          <div className="flex flex-col gap-10 lg:gap-16">
+          <div className="flex flex-col gap-6 lg:gap-16">
 
             {/* Row 1: Old man sketch (fixed 384 px) | Garden watercolour (flex-1) */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
+            <div className="flex flex-col lg:flex-row gap-6">
               <div className="relative w-full aspect-[4/5] lg:w-[384px] lg:shrink-0 lg:aspect-auto lg:h-[480px] rounded-[20px] overflow-hidden">
                 <Image src={ROW1_LEFT} alt="Old man sketch" fill className="object-cover" unoptimized />
               </div>
@@ -67,16 +67,18 @@ export default function ArtworkPage() {
               </div>
             </div>
 
-            {/* Row 2: House watercolour (flex-1) | Empty placeholder */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
-              <div className="relative w-full aspect-[3/2] lg:flex-1 lg:aspect-auto lg:h-[520px] rounded-[20px] overflow-hidden">
-                <Image src={ROW2_LEFT} alt="House watercolour" fill className="object-cover" unoptimized />
+            {/* Row 2: White townhouse painting | Cream townhouse painting (equal 50/50, wide gap) */}
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-[34px]">
+              <div className="relative w-full aspect-[3/4] lg:flex-1 lg:aspect-auto lg:h-[720px] rounded-[20px] overflow-hidden">
+                <Image src={ROW2_LEFT} alt="White townhouse painting" fill className="object-cover" unoptimized />
               </div>
-              <div className="hidden lg:block lg:w-[384px] lg:shrink-0 lg:h-[480px]" />
+              <div className="relative w-full aspect-[373/527] lg:flex-1 lg:aspect-auto lg:h-[720px] rounded-[20px] overflow-hidden">
+                <Image src={ROW2_RIGHT} alt="Cream townhouse painting" fill className="object-cover" unoptimized />
+              </div>
             </div>
 
             {/* Row 3: Landscape painting (flex-1) | Strawberry print (fixed 384 px) */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
+            <div className="flex flex-col lg:flex-row gap-6">
               <div className="relative w-full aspect-[3/2] lg:flex-1 lg:aspect-auto lg:h-[520px] rounded-[20px] overflow-hidden">
                 <Image src={ROW3_LEFT} alt="Landscape painting" fill className="object-cover" unoptimized />
               </div>
@@ -85,53 +87,69 @@ export default function ArtworkPage() {
               </div>
             </div>
 
-            {/* Row 4: Second wave | Hand sketch (flex-1) */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
-              <div className="relative w-full aspect-[3/2] lg:w-[384px] lg:shrink-0 lg:aspect-auto lg:h-[480px] rounded-[20px] overflow-hidden">
-                <Image src={ROW4_LEFT} alt="Second wave" fill className="object-cover" unoptimized />
+            {/* Row 4: Limpets sketch (flex-1) | Yorkshire terrier portrait (fixed 483 px) */}
+            <div className="flex flex-col lg:flex-row gap-6">
+              <div className="relative w-full aspect-[1106/677] lg:flex-1 lg:aspect-auto lg:h-[395px] rounded-[20px] overflow-hidden bg-[#F2F2F2]">
+                <Image src={ROW4_LEFT} alt="Limpet shells sketch" fill className="object-contain" unoptimized />
               </div>
+              <div className="relative w-full aspect-[373/527] lg:w-[483px] lg:shrink-0 lg:aspect-auto lg:h-[720px] rounded-[20px] overflow-hidden">
+                <Image src={ROW4_RIGHT} alt="Yorkshire terrier portrait" fill className="object-cover" unoptimized />
+              </div>
+            </div>
+
+            {/* Row 5: House watercolour (flex-1) | Empty placeholder */}
+            <div className="flex flex-col lg:flex-row gap-6">
               <div className="relative w-full aspect-[3/2] lg:flex-1 lg:aspect-auto lg:h-[520px] rounded-[20px] overflow-hidden">
-                <Image src={ROW4_RIGHT} alt="Hand sketch" fill className="object-cover" unoptimized />
-              </div>
-            </div>
-
-            {/* Row 5: Two children mixed media | London building sketch (equal 50/50) */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
-              <div className="relative w-full aspect-[4/5] lg:flex-1 lg:aspect-auto lg:h-[745px] rounded-[20px] overflow-hidden">
-                <Image src={ROW5_LEFT} alt="Two children, mixed media painting" fill className="object-cover" unoptimized />
-              </div>
-              <div className="relative w-full aspect-[3/4] lg:flex-1 lg:aspect-auto lg:h-[745px] rounded-[20px] overflow-hidden">
-                <Image src={ROW5_RIGHT} alt="London building sketch" fill className="object-cover" unoptimized />
-              </div>
-            </div>
-
-            {/* Row 6: Black Labrador painting | Vineyard sketch (equal 50/50) */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
-              <div className="relative w-full aspect-[5/7] lg:flex-1 lg:aspect-auto lg:h-[798px] rounded-[20px] overflow-hidden">
-                <Image src={ROW6_LEFT} alt="Black Labrador, mixed media painting" fill className="object-cover" unoptimized />
-              </div>
-              <div className="relative w-full aspect-[5/7] lg:flex-1 lg:aspect-auto lg:h-[798px] rounded-[20px] overflow-hidden">
-                <Image src={ROW6_RIGHT} alt="Vineyard sketch" fill className="object-cover" unoptimized />
-              </div>
-            </div>
-
-            {/* Row 7: Megaphone illustration | Empty | Circular Design book (3 cols) */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
-              <div className="relative w-full aspect-[4/5] lg:flex-1 lg:aspect-auto lg:h-[520px] rounded-[20px] overflow-hidden bg-[#F2F2F2]">
-                <Image src={ROW7_LEFT} alt="Megaphone illustration" fill className="object-contain" unoptimized />
+                <Image src={ROW5_LEFT} alt="House watercolour" fill className="object-cover" unoptimized />
               </div>
               <div className="hidden lg:block lg:w-[384px] lg:shrink-0 lg:h-[480px]" />
-              <div className="relative w-full aspect-[5/7] lg:flex-1 lg:aspect-auto lg:h-[520px] rounded-[20px] overflow-hidden bg-[#D6D3CA]">
-                <Image src={ROW9_LEFT} alt="Life mirror, charcoal figure study" fill className="object-cover" unoptimized />
+            </div>
+
+            {/* Row 6: Empty placeholder | Hand sketch (flex-1) — desktop only */}
+            <div className="hidden lg:flex lg:flex-row gap-6">
+              <div className="hidden lg:block lg:w-[384px] lg:shrink-0 lg:h-[480px]" />
+              <div className="relative w-full aspect-[3/2] lg:flex-1 lg:aspect-auto lg:h-[520px] rounded-[20px] overflow-hidden">
+                <Image src={ROW6_RIGHT} alt="Hand sketch" fill className="object-cover" unoptimized />
               </div>
             </div>
 
-            {/* Row 8: Empty placeholder | Man with wine glass (video) */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
+            {/* Row 7: Two children mixed media | London building sketch (equal 50/50) */}
+            <div className="flex flex-col lg:flex-row gap-6">
+              <div className="relative w-full aspect-[4/5] lg:flex-1 lg:aspect-auto lg:h-[745px] rounded-[20px] overflow-hidden">
+                <Image src={ROW7_LEFT} alt="Two children, mixed media painting" fill className="object-cover" unoptimized />
+              </div>
+              <div className="relative w-full aspect-[3/4] lg:flex-1 lg:aspect-auto lg:h-[745px] rounded-[20px] overflow-hidden">
+                <Image src={ROW7_RIGHT} alt="London building sketch" fill className="object-cover" unoptimized />
+              </div>
+            </div>
+
+            {/* Row 8: Black Labrador painting | Vineyard sketch (equal 50/50) */}
+            <div className="flex flex-col lg:flex-row gap-6">
+              <div className="relative w-full aspect-[5/7] lg:flex-1 lg:aspect-auto lg:h-[798px] rounded-[20px] overflow-hidden">
+                <Image src={ROW8_LEFT} alt="Black Labrador, mixed media painting" fill className="object-cover" unoptimized />
+              </div>
+              <div className="relative w-full aspect-[5/7] lg:flex-1 lg:aspect-auto lg:h-[798px] rounded-[20px] overflow-hidden">
+                <Image src={ROW8_RIGHT} alt="Vineyard sketch" fill className="object-cover" unoptimized />
+              </div>
+            </div>
+
+            {/* Row 9: Megaphone illustration | Circular Design book | Empty (3 cols) */}
+            <div className="flex flex-col lg:flex-row gap-6">
+              <div className="relative w-full aspect-[3/2] lg:w-[360px] lg:shrink-0 lg:aspect-auto lg:h-[450px] rounded-[20px] overflow-hidden bg-[#F2F2F2]">
+                <Image src={ROW9_LEFT} alt="Megaphone illustration" fill className="object-contain" unoptimized />
+              </div>
+              <div className="relative w-full aspect-[4/5] lg:w-[360px] lg:shrink-0 lg:aspect-auto lg:h-[450px] rounded-[20px] overflow-hidden bg-[#49A077]">
+                <Image src={ROW9_MID} alt="Circular Design Systems book cover" fill className="object-contain" unoptimized />
+              </div>
+              <div className="hidden lg:block lg:w-[384px] lg:shrink-0 lg:h-[480px]" />
+            </div>
+
+            {/* Row 10: Empty placeholder | Man with wine glass (video) */}
+            <div className="flex flex-col lg:flex-row gap-6">
               <div className="hidden lg:block lg:w-[384px] lg:shrink-0 lg:h-[480px]" />
               <div className="relative w-full aspect-[3/2] lg:flex-1 lg:aspect-auto lg:h-[520px] rounded-[20px] overflow-hidden">
                 <video
-                  src={ROW8_VIDEO}
+                  src={ROW10_VIDEO}
                   autoPlay
                   loop
                   muted
@@ -141,30 +159,12 @@ export default function ArtworkPage() {
               </div>
             </div>
 
-            {/* Row 9: Circular Design book (flex-1) | Limpets (fixed 384px) */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
-              <div className="relative w-full aspect-[4/5] lg:flex-1 lg:aspect-auto lg:h-[520px] rounded-[20px] overflow-hidden bg-[#49A077]">
-                <Image src={ROW7_RIGHT} alt="Circular Design Systems book cover" fill className="object-contain" unoptimized />
+            {/* Row 11: Second wave | Empty */}
+            <div className="flex flex-col lg:flex-row gap-6">
+              <div className="relative w-full aspect-[564/652] lg:flex-1 lg:aspect-auto lg:h-[652px] rounded-[20px] overflow-hidden">
+                <Image src={ROW11_LEFT} alt="Second Wave album artwork" fill className="object-cover" unoptimized />
               </div>
-              <div className="relative w-full aspect-[9/10] lg:w-[384px] lg:shrink-0 lg:aspect-auto lg:h-[520px] rounded-[20px] overflow-hidden bg-[#F2F2F2]">
-                <Image src={ROW9_RIGHT} alt="Limpet shells sketch" fill className="object-contain" unoptimized />
-              </div>
-            </div>
-
-            {/* Row 10: Empty placeholder | My Light Joshy illustration */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
-              <div className="hidden lg:block lg:w-[384px] lg:shrink-0 lg:h-[480px]" />
-              <div className="relative w-full aspect-[3/4] lg:flex-1 lg:aspect-auto lg:h-[520px] rounded-[20px] overflow-hidden bg-white">
-                <Image src={ROW10_RIGHT} alt="My Light Joshy, light bulb illustration" fill className="object-contain" unoptimized />
-              </div>
-            </div>
-
-            {/* Row 11: Swirl illustration | Empty */}
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-6">
-              <div className="relative w-full aspect-square lg:flex-1 lg:aspect-auto lg:h-[520px] rounded-[20px] overflow-hidden">
-                <Image src={ROW11_LEFT} alt="Swirl pattern illustration" fill className="object-cover" unoptimized />
-              </div>
-              <div className="hidden lg:block lg:w-[384px] lg:shrink-0 lg:h-[480px]" />
+              <div className="hidden lg:block lg:flex-1 lg:h-[480px]" />
             </div>
 
           </div>
